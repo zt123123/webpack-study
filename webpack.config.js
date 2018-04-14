@@ -22,11 +22,10 @@ module.exports = {
             },
             {
                 test: /\.less$/,
-                use: ['style-loader', 'css-loader', 'postcss-loader', 'less-loader']
-            },
-            {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader', 'postcss-loader']
+                use: ExtractText.extract({
+                    fallback: 'style-loader',
+                    use: ['css-loader', 'postcss-loader', 'less-loader']
+                })
             },
             {
                 test: /\.(jpg|png|gif)$/i,
@@ -49,6 +48,7 @@ module.exports = {
             },
             template: pathResole('index.html')
         }),
+        new ExtractText('app.css'),
         new webpack.HotModuleReplacementPlugin()
     ]
 };
