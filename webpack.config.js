@@ -22,7 +22,11 @@ module.exports = {
             },
             {
                 test: /\.less$/,
-                loader: ['less-loader']
+                use: ['style-loader', 'css-loader', 'postcss-loader', 'less-loader']
+            },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader', 'postcss-loader']
             },
             {
                 test: /\.(jpg|png|gif)$/i,

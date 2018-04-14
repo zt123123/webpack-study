@@ -1,3 +1,9 @@
+import './app.less'
+import './index.css'
+
+
+document.getElementById('img').setAttribute('src', require('./baidu.png'))
+
 class Person {
     constructor(name, age) {
         this.age = age;
